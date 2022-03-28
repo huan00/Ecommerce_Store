@@ -6,8 +6,8 @@ const Product = new Schema(
     price: { type: Number, require: true },
     Desc: String,
     img: String,
-    Brand: { type: Schema.Types.ObjectId, ref: 'brand_id' },
-    Category: { type: Schema.Types.ObjectId, ref: 'category_id' }
+    Brand: [{ type: Schema.Types.Mixed, ref: 'Brand', require: true }],
+    Category: [{ type: Schema.Types.Mixed, ref: 'Category', require: true }]
   },
   { timestamps: true }
 )

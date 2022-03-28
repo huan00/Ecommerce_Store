@@ -31,7 +31,7 @@ const main = async () => {
       url: 'www.zoomswap.com'
     }
   ]
-  await Brand.insertyMany(brands)
+  await Brand.insertMany(brands)
   console.log('Created brands')
 }
 
