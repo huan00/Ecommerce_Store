@@ -25,7 +25,9 @@ app.get('/', (req, res) => {
  *********************************/
 app.get('/sellers', SellerController.getSellers)
 
-app.get('/seller/:id', SellerController.getSellerById)
+app.get('/sellers/:id', SellerController.getSellerById)
+app.get('/sellers/username/:id', SellerController.getUserName)
+app.get('/sellers/password/:id', SellerController.getPassword)
 
 /*********************************
  * Get Products**********
