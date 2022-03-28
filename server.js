@@ -9,8 +9,6 @@ const ProductController = require('./controllers/ProductController')
 const BrandController = require('./controllers/BrandController')
 const CategoryController = require('./controllers/CategoryController')
 
-// const { Seller, Product, Brand, Category } = require('./models')
-
 const app = express()
 
 app.use(cors())
