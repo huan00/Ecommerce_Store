@@ -33,6 +33,8 @@ app.get('/seller/:id', SellerController.getSellerById)
 
 app.get('/products', ProductController.getProducts)
 app.post('/products', ProductController.postProduct)
+app.put('/products/:id', ProductController.postUpdateProduct)
+app.delete('/products/:id', ProductController.deleteProduct)
 
 /*********************************
  * Get Brands**********
