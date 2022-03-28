@@ -1,6 +1,6 @@
 
 
-const header = () => {
+const Header = () => {
   return (
     <div>
       <nav>
@@ -13,4 +13,4 @@ const header = () => {
   )
 }
 
-export default header
+export default Header
