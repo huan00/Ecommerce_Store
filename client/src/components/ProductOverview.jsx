@@ -1,20 +1,18 @@
 import React from 'react'
 
-const Product = (props) => {
+const ProductOverview = (props) => {
   return (
     <div>
+      <img src={props.img} alt="poster" style={{ width: '200px' }} />
       <h3>Product Name: {props.name}</h3>
       <p>Price: {props.price}</p>
-      <p>Description: {props.Desc}</p>
       <p>Brand: {props.Brand}</p>
-      <img src={props.img} alt="poster" style={{ width: '200px' }} />
-      <p>Category: {props.Category}</p>
-      <div>
+      {/* <div>
         <button>Edit</button>
         <button>Delete</button>
-      </div>
+      </div> */}
     </div>
   )
 }
 
-export default Product
+export default ProductOverview
