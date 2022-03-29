@@ -1,0 +1,51 @@
+import LoginForm from '../components/LoginForm'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+const Login = () => {
+  const [login, setLogin] = useState(false)
+  const [inputLogin, setInputLogin] = useState({ userName: '', password: '' })
+  const [resLogin, setResLogin] = useState({})
+
+  let navigate = useNavigate()
+  useEffect(() => {
+    if (
+      inputLogin.userName === resLogin.userName &&
+      inputLogin.password === resLogin.password
+    ) {
+      navigate('/user/profile')
+    } else {
+      navigate('/login')
+    }
+  }, [resLogin])
+
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    const res = await axios.get(
+      `http://localhost:3001/sellers/username/${inputLogin.userName}`
+    )
+    setResLogin(res.data)
+  }
+
+  const handleUserName = (e) => {
+    setInputLogin({ ...inputLogin, userName: e.target.value })
+  }
+  const handlePassword = (e) => {
+    setInputLogin({ ...inputLogin, password: e.target.value })
+  }
+
+  return (
+    <div>
+      Login
+      <button onClick={handleLogin}>adfadf</button>
+      <LoginForm
+        handleLogin={handleLogin}
+        handleUserName={handleUserName}
+        handlePassword={handlePassword}
+      />
+    </div>
+  )
+}
+
+export default Login
