@@ -21,8 +21,10 @@ const main = async () => {
         state: 'NY',
         zipCode: '11354'
       },
-      userName: 'HuanStore',
-      password: 'password',
+      login: {
+        userName: 'HuanStore',
+        password: 'password'
+      },
       product: [products[0]._id]
     }
   ]

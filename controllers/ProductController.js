@@ -10,6 +10,19 @@ const getProducts = async (req, res) => {
   }
 }
 
+const getProductById = async (req, res) => {
+  try {
+    const { id } = req.params
+    console.log(id)
+    const products = await Product.findById(id)
+    console.log(products)
+    res.json(products)
+  } catch (e) {
+    console.log(e.message)
+    res.send('No product found')
+  }
+}
+
 const postProduct = async (req, res) => {
   try {
     const product = await new Product(req.body)
@@ -51,5 +64,6 @@ module.exports = {
   getProducts,
   postProduct,
   postUpdateProduct,
-  deleteProduct
+  deleteProduct,
+  getProductById
 }

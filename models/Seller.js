@@ -9,14 +9,16 @@ const Seller = new Schema(
     email: { type: String, require: true },
     phone: { type: Number, require: true },
     address: {
-      street: { type: String, require: true },
-      city: { type: String, require: true },
-      state: { type: String, require: true },
-      zipCode: { type: Number, required: true }
+      street: { type: String },
+      city: { type: String },
+      state: { type: String },
+      zipCode: { type: Number }
     },
-    userName: { type: String, require: true },
-    password: { type: String, require: true },
-    product: { type: Schema.Types.ObjectId, ref: 'product_id' }
+    login: {
+      userName: { type: String, require: true },
+      password: { type: String, require: true }
+    },
+    product: [{ type: Schema.Types.ObjectId, ref: 'product_id' }]
   },
   { timestamps: true }
 )

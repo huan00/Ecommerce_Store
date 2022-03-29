@@ -5,10 +5,10 @@ const getSellers = async (req, res) => {
   res.json(sellers)
 }
 
-const getSellerById = async (req, res) => {
+const getUserName = async (req, res) => {
   try {
     const { id } = req.params
-    const seller = await Seller.findById(id)
+    const seller = await Seller.findOne({ userName: id })
     res.json(seller)
   } catch (e) {
     console.log(e.message)
@@ -16,23 +16,61 @@ const getSellerById = async (req, res) => {
   }
 }
 
-const getUserName = async (req, res) => {
+const updateProductList = async (req, res) => {
   const { id } = req.params
-  console.log(id)
-  const { userName } = await Seller.findOne({ firstName: id })
-
-  return res.status(201).json({ userName })
+  const updateBody = req.body
+  const updateList = await Seller.updateOne(
+    { userName: id },
+    { $set: { product: updateBody } }
+  )
 }
-const getPassword = async (req, res) => {
-  const { id } = req.params
 
-  const { password } = await Seller.findOne({ userName: id })
-  return res.status(201).json({ password })
+const getMatchUserName = async (req, res) => {
+  try {
+    const { id } = req.params
+    console.log(id)
+    const { login } = await Seller.findOne({ userName: id })
+    console.log(login)
+    if (login.userName === id) {
+      console.log(true)
+      return res.status(201).json(login)
+    } else {
+      res.send(`${id}` + 'is not a valid user')
+    }
+  } catch (e) {
+    return res.status(500).res.send({ e: e.message })
+  }
+}
+
+const getMatchPassword = async (req, res) => {
+  try {
+    const { id } = req.params
+    const { login } = await Seller.findOne({ userName: id })
+    if (login.password === id) {
+      return res.status(201).send('valid')
+    } else {
+      res.send('invalid password')
+    }
+  } catch (e) {
+    return res.status(500).res.send({ e: e.message })
+  }
+}
+
+const createSeller = async (req, res) => {
+  try {
+    const seller = await new Seller(req.body)
+    await seller.save()
+    return res.status(201).send('new seller created')
+  } catch (e) {
+    return res.status(500).json({ e: e.message })
+  }
 }
 
 module.exports = {
   getSellers,
-  getSellerById,
   getUserName,
-  getPassword
+  getMatchUserName,
+  getMatchPassword,
+  createSeller,
+  updateProductList
 }

@@ -14,7 +14,7 @@ const Login = () => {
       inputLogin.userName === resLogin.userName &&
       inputLogin.password === resLogin.password
     ) {
-      navigate('/user/profile')
+      navigate(`/user/profile/${inputLogin.userName}`)
     } else {
       navigate('/login')
     }
@@ -38,7 +38,6 @@ const Login = () => {
   return (
     <div>
       Login
-      <button onClick={handleLogin}>adfadf</button>
       <LoginForm
         handleLogin={handleLogin}
         handleUserName={handleUserName}
