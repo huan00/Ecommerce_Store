@@ -68,7 +68,7 @@ const Profile = () => {
 
   let navigate = useNavigate()
   const handleEdit = (prod) => {
-    navigate(`/products/edits/${prod}`)
+    navigate(`/products/edit/${prod}`)
   }
 
   const render = (product) => {

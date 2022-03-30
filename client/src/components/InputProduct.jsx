@@ -22,7 +22,7 @@ const InputProduct = (props) => {
 
   return (
     <div>
-      Input Product
+      {props.title}
       <form onSubmit={props.handleSubmit}>
         <label htmlFor="name">Product Name:</label>
         <input

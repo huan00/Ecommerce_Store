@@ -1,9 +1,12 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import InputProduct from '../components/InputProduct'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import ProductOverview from '../components/ProductOverview'
+import Product from '../components/Product'
 
 const EditPage = () => {
+  const { id } = useParams()
   const [product, setProduct] = useState({
     name: '',
     price: '',
@@ -12,6 +15,17 @@ const EditPage = () => {
     img: '',
     Category: ''
   })
+
+  useEffect(() => {
+    const getProduct = async () => {
+      const res = await axios.get(`http://localhost:3001/products/${id}`)
+      setProduct(res.data)
+      console.log(res.data)
+    }
+    getProduct()
+  }, [])
+
+  console.log(product)
 
   const handleName = (e) => {
     setProduct({ ...product, name: e.target.value })
@@ -32,6 +46,8 @@ const EditPage = () => {
     setProduct({ ...product, Category: e.target.value })
   }
 
+  console.log('here')
+
   let navigate = useNavigate()
   const handleSubmit = async (e, id) => {
     e.preventDefault()
@@ -45,8 +61,10 @@ const EditPage = () => {
   return (
     <div>
       EditPage
+      <Product {...product} style={'none'} />
       <InputProduct
-        handleSubmit={handleSubmit}
+        title={'Update Product'}
+        handleSubmit={() => handleSubmit(id)}
         handleName={handleName}
         handlePrice={handlePrice}
         handleDesc={handleDesc}
