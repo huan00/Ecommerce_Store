@@ -7,7 +7,8 @@ const Product = new Schema(
     Desc: String,
     img: String,
     Brand: [{ type: Schema.Types.Mixed, ref: 'Brand', require: true }],
-    Category: [{ type: Schema.Types.Mixed, ref: 'Category', require: true }]
+    Category: [{ type: Schema.Types.Mixed, ref: 'Category', require: true }],
+    Seller: []
   },
   { timestamps: true }
 )

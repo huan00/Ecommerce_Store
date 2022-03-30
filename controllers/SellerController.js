@@ -17,12 +17,14 @@ const getUserName = async (req, res) => {
 }
 
 const updateProductList = async (req, res) => {
-  const { id } = req.params
-  const updateBody = req.body
-  const updateList = await Seller.updateOne(
-    { userName: id },
-    { $set: { product: updateBody } }
-  )
+  try {
+    const { id } = req.params
+    const obj = req.body
+    const seller = await Seller.findByIdAndUpdate(id, { $set: obj })
+    return res.status(200).json(seller)
+  } catch (e) {
+    return res.status(500).json({ e: e.message })
+  }
 }
 
 const getMatchUserName = async (req, res) => {
@@ -66,11 +68,33 @@ const createSeller = async (req, res) => {
   }
 }
 
+const deleteProduct = async (req, res) => {
+  try {
+    const product = req.body
+    const { id } = req.params
+    console.log(id)
+    console.log(product)
+    // const { product } = await Seller.findOne({ userName: user })
+    // let index = product.indexOf(id.product)
+    // product.splice(index, 1)
+    // console.log(product)
+
+    const seller = await Seller.findOneAndUpdate(
+      { userName: id },
+      { $set: { product } }
+    )
+    return res.status(200).send('success')
+  } catch (e) {
+    return res.status(500).json({ e: e.message })
+  }
+}
+
 module.exports = {
   getSellers,
   getUserName,
   getMatchUserName,
   getMatchPassword,
   createSeller,
-  updateProductList
+  updateProductList,
+  deleteProduct
 }

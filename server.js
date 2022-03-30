@@ -27,7 +27,8 @@ app.get('/sellers/:id', SellerController.getUserName)
 app.get('/sellers/username/:id', SellerController.getMatchUserName)
 app.get('/sellers/password/:id', SellerController.getMatchPassword)
 app.post('/sellers/register', SellerController.createSeller)
-app.put('/sellers/updateproduct', SellerController.updateProductList)
+app.put('/sellers/updateproduct/:id', SellerController.updateProductList)
+app.put('/sellers/product/:id', SellerController.deleteProduct)
 
 /*********************************
  * Get Products**********
@@ -39,18 +40,21 @@ app.post('/products', ProductController.postProduct)
 
 app.put('/products/:id', ProductController.postUpdateProduct)
 app.delete('/products/:id', ProductController.deleteProduct)
+app.get('/products/getProductByUser/:id', ProductController.getProductByUser)
 
 /*********************************
  * Get Brands**********
  *********************************/
 
 app.get('/brands', BrandController.getBrands)
+app.post('/brands', BrandController.postBrand)
 
 /*********************************
  * Get Categories**********
  *********************************/
 
 app.get('/category', CategoryController.getCategory)
+app.post('/category', CategoryController.getCategory)
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`)

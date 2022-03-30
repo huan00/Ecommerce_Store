@@ -20,7 +20,7 @@ const Home = () => {
     <div>
       Home
       {products.map((product) => (
-        <Link to="/" key={product._id}>
+        <Link to={`/products/viewproduct/${product._id}`} key={product._id}>
           <ProductOverview {...product} key={product._id} />
         </Link>
       ))}

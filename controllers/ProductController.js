@@ -1,4 +1,4 @@
-const { Product } = require('../models')
+const { Product, Seller } = require('../models')
 
 const getProducts = async (req, res) => {
   try {
@@ -20,6 +20,23 @@ const getProductById = async (req, res) => {
   } catch (e) {
     console.log(e.message)
     res.send('No product found')
+  }
+}
+
+const getProductByUser = async (req, res) => {
+  try {
+    const { id } = req.params
+    console.log(id)
+    const { product } = await Seller.findOne({ userName: id })
+    let newPro = []
+    for (i = 0; i < product.length; i++) {
+      newPro = [...newPro, await Product.findById(product[i])]
+    }
+    res.status(200).json(newPro)
+
+    console.log(newPro)
+  } catch (e) {
+    console.log(e.message)
   }
 }
 
@@ -65,5 +82,6 @@ module.exports = {
   postProduct,
   postUpdateProduct,
   deleteProduct,
-  getProductById
+  getProductById,
+  getProductByUser
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Product = (props) => {
   return (
@@ -10,8 +11,10 @@ const Product = (props) => {
       <img src={props.img} alt="poster" style={{ width: '200px' }} />
       <p>Category: {props.Category}</p>
       <div>
-        <button>Edit</button>
-        <button>Delete</button>
+        <Link to="/products/edit/">
+          <button>Edit</button>
+        </Link>
+        <button onClick={props.handleDelete}>Delete</button>
       </div>
     </div>
   )

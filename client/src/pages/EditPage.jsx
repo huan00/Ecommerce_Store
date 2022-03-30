@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import InputProduct from '../components/InputProduct'
+import { useNavigate } from 'react-router-dom'
 
-const AddProduct = () => {
+const EditPage = () => {
   const [product, setProduct] = useState({
     name: '',
     price: '',
@@ -33,17 +33,18 @@ const AddProduct = () => {
   }
 
   let navigate = useNavigate()
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, id) => {
     e.preventDefault()
     const res = await axios
-      .post(`http://localhost:3001/products`, product)
+      .put(`http://localhost:3001/products/${id}`, product)
       .then((response) => console.log('success'))
 
     navigate('/')
   }
+
   return (
     <div>
-      InputProduct
+      EditPage
       <InputProduct
         handleSubmit={handleSubmit}
         handleName={handleName}
@@ -57,4 +58,4 @@ const AddProduct = () => {
   )
 }
 
-export default AddProduct
+export default EditPage

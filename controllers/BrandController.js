@@ -9,6 +9,17 @@ const getBrands = async (req, res) => {
   }
 }
 
+const postBrand = async (req, res) => {
+  try {
+    const brand = await new Brand(req.body)
+    await brand.save()
+    return res.status(201).json({ brand })
+  } catch (e) {
+    return res.status(500).json({ e: e.message })
+  }
+}
+
 module.exports = {
-  getBrands
+  getBrands,
+  postBrand
 }

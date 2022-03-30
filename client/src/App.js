@@ -9,6 +9,7 @@ import AddCategory from './pages/AddCategory'
 import AddProduct from './pages/AddProduct'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import EditPage from './pages/EditPage'
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/products/addcategory" element={<AddCategory />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/products/edit/:id" element={<EditPage />} />
+          <Route path="/products/viewproduct/:id" element={<ViewProduct />} />
         </Routes>
       </main>
     </div>

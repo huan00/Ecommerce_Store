@@ -9,6 +9,17 @@ const getCategory = async (req, res) => {
   }
 }
 
+const postCategory = async (req, res) => {
+  try {
+    const category = await new Category(req.body)
+    await category.save()
+    return res.status(201).json({ category })
+  } catch (e) {
+    return res.status(500).json({ e: e.message })
+  }
+}
+
 module.exports = {
-  getCategory
+  getCategory,
+  postCategory
 }
