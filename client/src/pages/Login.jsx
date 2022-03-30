@@ -26,6 +26,8 @@ const Login = () => {
       `http://localhost:3001/sellers/username/${inputLogin.userName}`
     )
     setResLogin(res.data)
+    console.log(inputLogin)
+    console.log(resLogin)
   }
 
   const handleUserName = (e) => {

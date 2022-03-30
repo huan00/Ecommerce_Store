@@ -21,14 +21,16 @@ const ViewProduct = (props) => {
   return (
     <div>
       ViewProduct
-      <Product
-        img={product.img}
-        name={product.name}
-        price={product.price}
-        desc={product.desc}
-        Brand={product.Brand}
-        Category={product.Category}
-      />
+      {product && (
+        <Product
+          img={product.img}
+          name={product.name}
+          price={product.price}
+          Desc={product.Desc}
+          Brand={product.Brand}
+          Category={product.Category}
+        />
+      )}
     </div>
   )
 }

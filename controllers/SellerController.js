@@ -31,16 +31,17 @@ const getMatchUserName = async (req, res) => {
   try {
     const { id } = req.params
     console.log(id)
-    const { login } = await Seller.findOne({ userName: id })
-    console.log(login)
-    if (login.userName === id) {
-      console.log(true)
-      return res.status(201).json(login)
-    } else {
-      res.send(`${id}` + 'is not a valid user')
+    let user = {}
+    const logins = await Seller.find()
+    for (let i = 0; i < logins.length; i++) {
+      if (logins[i].login.userName === id) {
+        user = logins[i].login
+        return res.status(201).json(user)
+      }
     }
+    return res.send(`${id}` + 'is not a valid user')
   } catch (e) {
-    return res.status(500).res.send({ e: e.message })
+    return res.status(500).send({ e: e.message })
   }
 }
 

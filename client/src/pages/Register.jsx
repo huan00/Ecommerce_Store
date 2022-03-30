@@ -93,7 +93,7 @@ const Register = () => {
   const onRegister = async (e) => {
     e.preventDefault()
     const res = await axios
-      .post(`http:/localhost:3001/sellers/register`, registerForm)
+      .post('http://localhost:3001/sellers/register', registerForm)
       .then((res) => console.log('successful'))
       .catch((err) => console.log(err.data))
   }
