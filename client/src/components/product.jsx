@@ -11,10 +11,10 @@ const Product = (props) => {
       <img src={props.img} alt="poster" style={{ width: '200px' }} />
       <p>Category: {props.Category}</p>
       <div>
-        <Link to="/products/edit/">
-          <button>Edit</button>
-        </Link>
+        <button onClick={props.handleEdit}>Edit</button>
+
         <button onClick={props.handleDelete}>Delete</button>
+        <button onClick={props.handleAddProduct}>Add to portfolio</button>
       </div>
     </div>
   )

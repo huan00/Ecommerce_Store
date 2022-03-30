@@ -29,6 +29,7 @@ app.get('/sellers/password/:id', SellerController.getMatchPassword)
 app.post('/sellers/register', SellerController.createSeller)
 app.put('/sellers/updateproduct/:id', SellerController.updateProductList)
 app.put('/sellers/product/:id', SellerController.deleteProduct)
+app.get('/sellers/productlist/:id', SellerController.getUserProductList)
 
 /*********************************
  * Get Products**********

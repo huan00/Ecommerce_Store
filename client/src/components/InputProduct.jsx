@@ -1,6 +1,25 @@
-import React from 'react'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const InputProduct = (props) => {
+  const [category, setCategory] = useState([])
+  const [brand, setBrand] = useState([])
+
+  useEffect(() => {
+    const getCategory = async () => {
+      const res = await axios.get(`http://localhost:3001/category`)
+      setCategory(res.data)
+    }
+    const getBrand = async () => {
+      const res = await axios.get(`http://localhost:3001/brands`)
+      setBrand(res.data)
+    }
+    getCategory()
+    getBrand()
+  }, [])
+
+  console.log(category)
+
   return (
     <div>
       Input Product
@@ -34,19 +53,22 @@ const InputProduct = (props) => {
           placeholder="Image Url"
         />
         <label htmlFor="brand">Brand</label>
-        <input
-          onChange={props.handleBrand}
-          type="text"
-          id="brand"
-          placeholder="Item brand"
-        />
+        <select name="" id="" onChange={props.handleBrand}>
+          {brand.map((bd) => (
+            <option key={bd._id} value={bd.name}>
+              {bd.name}
+            </option>
+          ))}
+        </select>
         <label htmlFor="category"></label>
-        <input
-          onChange={props.handleCategory}
-          type="text"
-          id="category"
-          placeholder="category"
-        />
+        <select name="" id="" onChange={props.handleCategory}>
+          {category.map((cate) => (
+            <option key={cate._id} value={cate.name}>
+              {cate.name}
+            </option>
+          ))}
+        </select>
+
         <button>Submit</button>
       </form>
     </div>

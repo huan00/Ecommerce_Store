@@ -21,7 +21,7 @@ const updateProductList = async (req, res) => {
     const { id } = req.params
     const obj = req.body
     const seller = await Seller.findByIdAndUpdate(id, { $set: obj })
-    return res.status(200).json(seller)
+    return res.status(200).json(obj)
   } catch (e) {
     return res.status(500).json({ e: e.message })
   }
@@ -90,6 +90,21 @@ const deleteProduct = async (req, res) => {
   }
 }
 
+const getUserProductList = async (req, res) => {
+  try {
+    const { id } = req.params
+    const seller = await Seller.findById(id)
+    const productList = seller.product
+    if (productList) {
+      return res.status(200).json(productList)
+    } else {
+      return res.status(500).send('error')
+    }
+  } catch (e) {
+    console.log(e.message)
+  }
+}
+
 module.exports = {
   getSellers,
   getUserName,
@@ -97,5 +112,6 @@ module.exports = {
   getMatchPassword,
   createSeller,
   updateProductList,
-  deleteProduct
+  deleteProduct,
+  getUserProductList
 }
