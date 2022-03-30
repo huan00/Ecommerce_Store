@@ -29,6 +29,7 @@ const ViewProduct = (props) => {
           Desc={product.Desc}
           Brand={product.Brand}
           Category={product.Category}
+          style={'none'}
         />
       )}
     </div>

@@ -96,6 +96,8 @@ const Register = () => {
       .post('http://localhost:3001/sellers/register', registerForm)
       .then((res) => console.log('successful'))
       .catch((err) => console.log(err.data))
+
+    navigate('/login')
   }
 
   console.log(registerForm)

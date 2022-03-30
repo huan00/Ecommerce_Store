@@ -11,11 +11,17 @@ const Product = (props) => {
       <img src={props.img} alt="poster" style={{ width: '200px' }} />
       <p>Category: {props.Category}</p>
       <div>
-        <button style={{ display: props.style }} onClick={props.handleEdit}>
+        <button
+          style={{ display: props.style, display: props.portStyle }}
+          onClick={props.handleEdit}
+        >
           Edit
         </button>
 
-        <button style={{ display: props.style }} onClick={props.handleDelete}>
+        <button
+          style={{ display: props.style, display: props.portStyle }}
+          onClick={props.handleDelete}
+        >
           Delete
         </button>
         <button

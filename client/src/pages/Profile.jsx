@@ -8,62 +8,50 @@ const Profile = () => {
   const id = useParams()
   const user = id.id
 
-  console.log(user)
   const [userProfile, setUserProfile] = useState()
-  const [userProductId, setUserProductId] = useState()
-  const [product, setProduct] = useState([])
+  const [userProductList, setUserProductList] = useState([])
+  const [userProduct, setUserProduct] = useState([])
   const [login, setLogin] = useState(true)
-  const [userId, setUserId] = useState()
+  const [userId, setUserId] = useState('')
 
   useEffect(() => {
-    const getUser = async () => {
-      const res = await axios.get(`http://localhost:3001/sellers/${id}`)
-      if (!userProfile) {
-        setUserProfile(res.data)
-        setUserId(res.data._id)
-      }
-      setUserProductId(res.data.product)
-    }
-    const getProduct = async () => {
-      const res = await axios.get(
-        `http://localhost:3001/products/getProductByUser/${id}`
-      )
-
-      setProduct(res.data)
-    }
-
     getUser()
     getProduct()
   }, [])
 
-  const deleteProduct = async (productId) => {
-    let updateProduct
-    if (product === 1) {
-      setProduct([])
-      setUserProductId([])
-      updateProduct = { product: '' }
-    } else {
-      const pId = product.indexOf(productId)
-      const pIds = userProductId.indexOf(productId)
-      setUserProductId(userProductId.splice(pIds, 1))
-      updateProduct = { product: [...userProductId] }
-      setProduct(product.splice(pId, 1))
-    }
+  const getUser = async () => {
+    const res = await axios.get(`http://localhost:3001/sellers/${id}`)
+    setUserProfile(res.data)
+    setUserProductList(res.data.product)
+    setUserId(res.data._id)
+  }
 
-    render(product)
+  const getProduct = async () => {
+    const res = await axios.get(
+      `http://localhost:3001/products/getProductByUser/${id}`
+    )
+
+    setUserProduct(res.data)
+  }
+
+  const deleteProduct = async (productId) => {
+    const index = userProductList.indexOf(productId)
+    setUserProductList(userProductList.splice(index, 1))
+    const updateList = { product: [...userProductList] }
     const res = await axios
-      .put(
-        `http://localhost:3001/sellers/updateproduct/${userId}`,
-        updateProduct
-      )
+      .put(`http://localhost:3001/sellers/updateproduct/${userId}`, updateList)
       .then((response) => {
         console.log(response)
       })
-    console.log(updateProduct)
+
+    getProduct()
+    getUser()
+    render(userProduct)
   }
 
-  const handleDelete = async (userId, productId) => {
+  const handleDelete = async (productId) => {
     deleteProduct(productId)
+    console.log('click')
   }
 
   let navigate = useNavigate()
@@ -71,10 +59,10 @@ const Profile = () => {
     navigate(`/products/edit/${prod}`)
   }
 
-  const render = (product) => {
+  const render = (userProduct) => {
     return (
       <div>
-        {product.map((el) => (
+        {userProduct.map((el) => (
           <Product
             {...el}
             handleDelete={() => handleDelete(el._id)}
@@ -93,11 +81,8 @@ const Profile = () => {
           <li>Add Product</li>
         </Link>
         <Link to={`/sellers/addportfolio/${userId}`}>
-          <li>Add product to portfolio</li>
+          <li>Add Product to portfolio</li>
         </Link>
-        {/* <Link to="">
-          <li>Delete Product</li>
-        </Link> */}
         <Link to="/products/addcategory">
           <li>Add Category</li>
         </Link>
@@ -106,11 +91,7 @@ const Profile = () => {
         </Link>
       </nav>
       <h1>Welcome {user}</h1>
-      {render(product)}
-
-      {/* {product.map((el) => (
-        <Product {...el} handleDelete={() => handleDelete(el._id)} />
-      ))} */}
+      {render(userProduct)}
     </div>
   )
 }

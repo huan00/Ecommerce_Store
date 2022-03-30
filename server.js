@@ -23,13 +23,13 @@ app.get('/', (req, res) => {
  *********************************/
 app.get('/sellers', SellerController.getSellers)
 
-app.get('/sellers/:id', SellerController.getUserName)
+app.post('/sellers/register', SellerController.createSeller)
 app.get('/sellers/username/:id', SellerController.getMatchUserName)
 app.get('/sellers/password/:id', SellerController.getMatchPassword)
-app.post('/sellers/register', SellerController.createSeller)
 app.put('/sellers/updateproduct/:id', SellerController.updateProductList)
 app.put('/sellers/product/:id', SellerController.deleteProduct)
 app.get('/sellers/productlist/:id', SellerController.getUserProductList)
+app.get('/sellers/:id', SellerController.getUserName)
 
 /*********************************
  * Get Products**********

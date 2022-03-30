@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Product from '../components/Product'
 
 const AddPortfolio = () => {
@@ -76,6 +76,11 @@ const AddPortfolio = () => {
     render()
   }
 
+  let navigate = useNavigate()
+  const handleEdit = (prod) => {
+    navigate(`/products/edit/${prod}`)
+  }
+
   const render = () => {
     return (
       <div>
@@ -86,6 +91,7 @@ const AddPortfolio = () => {
               {...product}
               key={product._id}
               handleDelete={() => handleDelete(product._id)}
+              handleEdit={() => handleEdit(product._id)}
             />
           ))}
         </div>
@@ -96,6 +102,7 @@ const AddPortfolio = () => {
               {...product}
               handleAddProduct={() => handleAddProduct(product._id)}
               handleDelete={() => handleDelete(product._id)}
+              portStyle={'none'}
             />
           ))}
         </div>
