@@ -16,13 +16,24 @@ const Home = () => {
       setProducts(res.data)
     }
     getProducts()
-  }, [])
+    render(search)
+  }, [search])
 
   const handleSearch = (e) => {
     e.preventDefault()
     setSearch(e.target.value)
   }
   console.log(search)
+
+  const filterSearch = (search) => {
+    let filtered = [{}]
+    products.map((product) => {
+      if (product.name.toLowerCase().includes(search.toLowerCase())) {
+        filtered = [...filtered, product]
+      }
+    })
+    return filtered
+  }
 
   const render = (search) => {
     if (!search) {
@@ -35,16 +46,16 @@ const Home = () => {
           ))}
         </div>
       )
-    } else {
-      products.map((product) => {
-        if (product.name.includes(search)) {
-          return (
-            <Link to={`/products/viewproduct/${product._id}`} key={product._id}>
-              <ProductOverview {...product} key={product._id} style={'none'} />
+    } else if (search) {
+      return (
+        <div>
+          {filterSearch(search).map((filter) => (
+            <Link to="">
+              <ProductOverview {...filter} />
             </Link>
-          )
-        }
-      })
+          ))}
+        </div>
+      )
     }
   }
 
