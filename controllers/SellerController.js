@@ -105,6 +105,18 @@ const getUserProductList = async (req, res) => {
   }
 }
 
+const deleteUserProfile = async (req, res) => {
+  try {
+    const { id } = req.params
+    const seller = await Seller.findOneAndDelete({ username: id })
+    if (seller) {
+      return res.status(200).send('user deleted')
+    }
+  } catch (e) {
+    console.log(e.message)
+  }
+}
+
 module.exports = {
   getSellers,
   getUserName,
@@ -113,5 +125,6 @@ module.exports = {
   createSeller,
   updateProductList,
   deleteProduct,
-  getUserProductList
+  getUserProductList,
+  deleteUserProfile
 }

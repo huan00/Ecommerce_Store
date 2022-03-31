@@ -31,6 +31,7 @@ app.put('/sellers/updateproduct/:id', SellerController.updateProductList)
 app.put('/sellers/product/:id', SellerController.deleteProduct)
 app.get('/sellers/productlist/:id', SellerController.getUserProductList)
 app.get('/sellers/:id', SellerController.getUserName)
+app.delete('/sellers/profile/:id', SellerController.deleteUserProfile)
 
 /*********************************
  * Get Products**********

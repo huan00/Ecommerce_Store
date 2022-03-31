@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import Product from '../components/Product'
@@ -56,6 +57,13 @@ const Profile = () => {
     navigate(`/products/edit/${prod}`)
   }
 
+  const handleDeleteProfile = async (e) => {
+    e.preventDefault()
+    const res = await axios.delete(`/sellers/profile/${user}`)
+
+    navigate('/')
+  }
+
   const render = (userProduct) => {
     return (
       <>
@@ -87,6 +95,9 @@ const Profile = () => {
           <Link to="/products/addbrand">
             <li>Add Brand</li>
           </Link>
+          <a>
+            <li onClick={handleDeleteProfile}>Delete Profile</li>
+          </a>
         </ul>
       </div>
       <div className="profileTitle">

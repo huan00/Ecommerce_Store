@@ -9,6 +9,7 @@ const Login = () => {
   const [inputLogin, setInputLogin] = useState({ userName: '', password: '' })
   const [resLogin, setResLogin] = useState({})
 
+  let incorrect = 'none'
   let navigate = useNavigate()
   useEffect(() => {
     if (
@@ -17,7 +18,7 @@ const Login = () => {
     ) {
       navigate(`/user/profile/${inputLogin.userName}`)
     } else {
-      navigate('/login')
+      incorrect = 'block'
     }
   }, [resLogin])
 
@@ -36,10 +37,12 @@ const Login = () => {
 
   return (
     <div>
+      <h1 style={{ display: incorrect }}>wrong Password</h1>
       <LoginForm
         handleLogin={handleLogin}
         handleUserName={handleUserName}
         handlePassword={handlePassword}
+        incorrect={incorrect}
       />
     </div>
   )

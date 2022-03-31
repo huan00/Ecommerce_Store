@@ -12,6 +12,9 @@ const LoginForm = (props) => {
         <h1>Login</h1>
         <div className="formContent">
           <form onSubmit={props.handleLogin} className="loginForm">
+            <p style={{ display: `${props.incorrect}`, color: 'red' }}>
+              Wrong Username/Password
+            </p>
             <label htmlFor="username"></label>
             <input
               type="text"
