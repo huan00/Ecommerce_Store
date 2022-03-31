@@ -22,15 +22,12 @@ const Home = () => {
   }, [search])
 
   const getFakeProduct = async () => {
-    const res = await axios.get(`/products?limit=50`)
+    const res = await axios.get(`https://fakestoreapi.com/products?limit=50`)
     setFakeProducts(res.data)
   }
 
   const updateProductList = async (newlist) => {
-    const res = await axios.post(
-      `https://fakestoreapi.com/products/postmany`,
-      newlist
-    )
+    const res = await axios.post(`/products/postmany`, newlist)
   }
 
   const convertFake = (fakeProducts) => {
