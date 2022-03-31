@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  background-color: #dddddd;
+}
+
+.homePage {
+}
+
+.homeProduct {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 80%;
+  margin: 0 auto;
+}
+
+.homePage img {
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+}
+
+.productContainer {
+  width: 300px;
+  height: 500px;
+  margin: 20px 0;
+  background-color: white;
+}
+
+.productContainer:hover {
+  border: 1px solid #aaaaaa;
+}
+
+.productContainer div {
+  padding: 20px;
+}

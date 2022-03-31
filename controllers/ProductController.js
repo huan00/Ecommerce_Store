@@ -50,6 +50,16 @@ const postProduct = async (req, res) => {
   }
 }
 
+const postMany = async (req, res) => {
+  try {
+    const product = req.body
+    await Product.insertMany(product)
+    return res.status(200).json(product)
+  } catch (e) {
+    return res.status(500).json({ e: e.message })
+  }
+}
+
 const postUpdateProduct = async (req, res) => {
   try {
     const { id } = req.params
@@ -83,5 +93,6 @@ module.exports = {
   postUpdateProduct,
   deleteProduct,
   getProductById,
-  getProductByUser
+  getProductByUser,
+  postMany
 }

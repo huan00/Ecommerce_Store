@@ -38,7 +38,7 @@ app.get('/sellers/:id', SellerController.getUserName)
 app.get('/products', ProductController.getProducts)
 app.get('/products/:id', ProductController.getProductById)
 app.post('/products', ProductController.postProduct)
-
+app.post('/products/postmany', ProductController.postMany)
 app.put('/products/:id', ProductController.postUpdateProduct)
 app.delete('/products/:id', ProductController.deleteProduct)
 app.get('/products/getProductByUser/:id', ProductController.getProductByUser)

@@ -4,11 +4,12 @@ import Product from '../components/Product'
 import ProductOverview from '../components/ProductOverview'
 import { Link } from 'react-router-dom'
 import Search from '../components/Search'
-import { render } from '@testing-library/react'
+import '../styles/Home.css'
 
 const Home = () => {
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
+  const [fakeProducts, setFakeProducts] = useState([])
 
   useEffect(() => {
     const getProducts = async () => {
@@ -16,14 +17,50 @@ const Home = () => {
       setProducts(res.data)
     }
     getProducts()
+    getFakeProduct()
     render(search)
   }, [search])
+
+  const getFakeProduct = async () => {
+    const res = await axios.get(`https://fakestoreapi.com/products?limit=50`)
+    setFakeProducts(res.data)
+  }
+
+  const updateProductList = async (newlist) => {
+    const res = await axios.post(
+      `http://localhost:3001/products/postmany`,
+      newlist
+    )
+  }
+
+  const convertFake = (fakeProducts) => {
+    let updateList = []
+    fakeProducts.map((product) => {
+      updateList = [
+        ...updateList,
+        {
+          name: product.title,
+          Desc: product.description,
+          price: product.price,
+          img: product.image,
+          Category: product.category,
+          Brand: ' '
+        }
+      ]
+    })
+    return updateList
+  }
+
+  const newlist = convertFake(fakeProducts)
+  console.log(newlist)
+  if (products.length <= 20) {
+    updateProductList(newlist)
+  }
 
   const handleSearch = (e) => {
     e.preventDefault()
     setSearch(e.target.value)
   }
-  console.log(search)
 
   const filterSearch = (search) => {
     let filtered = [{}]
@@ -38,17 +75,26 @@ const Home = () => {
   const render = (search) => {
     if (!search) {
       return (
-        <div>
+        <div className="homeProduct">
           {products.map((product) => (
-            <Link to={`/products/viewproduct/${product._id}`} key={product._id}>
-              <ProductOverview {...product} key={product._id} style={'none'} />
-            </Link>
+            <div className="productContainer">
+              <Link
+                to={`/products/viewproduct/${product._id}`}
+                key={product._id}
+              >
+                <ProductOverview
+                  {...product}
+                  key={product._id}
+                  style={'none'}
+                />
+              </Link>
+            </div>
           ))}
         </div>
       )
     } else if (search) {
       return (
-        <div>
+        <div className="homeProduct">
           {filterSearch(search).map((filter) => (
             <Link to="">
               <ProductOverview {...filter} />
@@ -60,15 +106,11 @@ const Home = () => {
   }
 
   return (
-    <div>
-      Home
+    <div className="homePage">
+      <h1>Ninty-nine & UP</h1>
       <Search handleSearch={handleSearch} />
+
       {render(search)}
-      {/* {products.map((product) => (
-        <Link to={`/products/viewproduct/${product._id}`} key={product._id}>
-          <ProductOverview {...product} key={product._id} />
-        </Link>
-      ))} */}
     </div>
   )
 }

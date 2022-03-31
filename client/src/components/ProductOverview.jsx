@@ -4,7 +4,7 @@ const ProductOverview = (props) => {
   return (
     <div>
       <img src={props.img} alt="poster" style={{ width: '200px' }} />
-      <h3>Product Name: {props.name}</h3>
+      <h3>{props.name}</h3>
       <p>Price: {props.price}</p>
       <p>Brand: {props.Brand}</p>
       {/* <div>

@@ -88,8 +88,6 @@ const Register = () => {
     setRegisterForm(temp)
   }
 
-  // console.log(registerForm.address.city)
-
   const onRegister = async (e) => {
     e.preventDefault()
     const res = await axios
@@ -99,8 +97,6 @@ const Register = () => {
 
     navigate('/login')
   }
-
-  console.log(registerForm)
 
   return (
     <div>

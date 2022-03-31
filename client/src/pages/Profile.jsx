@@ -51,7 +51,6 @@ const Profile = () => {
 
   const handleDelete = async (productId) => {
     deleteProduct(productId)
-    console.log('click')
   }
 
   let navigate = useNavigate()

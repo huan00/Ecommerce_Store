@@ -28,7 +28,7 @@ const AddBrand = () => {
 
     navigate('/')
   }
-  console.log(brand)
+
   return (
     <div>
       <InputBrand

@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Product from '../components/Product'
+import '../styles/ViewProduct.css'
 
 const ViewProduct = (props) => {
   const { id } = useParams()
@@ -11,16 +12,12 @@ const ViewProduct = (props) => {
     const getProductDetail = async () => {
       const res = await axios.get(`http://localhost:3001/products/${id}`)
       setProduct(res.data)
-      console.log(res)
     }
     getProductDetail()
   }, [])
 
-  console.log(product)
-
   return (
-    <div>
-      ViewProduct
+    <div className="ViewProduct">
       {product && (
         <Product
           img={product.img}
@@ -29,7 +26,9 @@ const ViewProduct = (props) => {
           Desc={product.Desc}
           Brand={product.Brand}
           Category={product.Category}
-          style={'none'}
+          editStyle={'none'}
+          deleteStyle={'none'}
+          addStyle={'none'}
         />
       )}
     </div>

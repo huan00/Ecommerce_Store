@@ -3,29 +3,29 @@ import { Link } from 'react-router-dom'
 
 const Product = (props) => {
   return (
-    <div>
-      <h3>Product Name: {props.name}</h3>
-      <p>Price: {props.price}</p>
-      <p>Description: {props.Desc}</p>
-      <p>Brand: {props.Brand}</p>
+    <div className="product">
+      <h3> {props.name}</h3>
+      <p>${props.price}</p>
+      <p>{props.Desc}</p>
+
       <img src={props.img} alt="poster" style={{ width: '200px' }} />
-      <p>Category: {props.Category}</p>
+      <div className="BrandCate">
+        <p className="brand">{props.Brand}</p>
+        <p className="category">{props.Category}</p>
+      </div>
       <div>
-        <button
-          style={{ display: props.style, display: props.portStyle }}
-          onClick={props.handleEdit}
-        >
+        <button style={{ display: props.editStyle }} onClick={props.handleEdit}>
           Edit
         </button>
 
         <button
-          style={{ display: props.style, display: props.portStyle }}
+          style={{ display: props.deleteStyle }}
           onClick={props.handleDelete}
         >
           Delete
         </button>
         <button
-          style={{ display: props.style }}
+          style={{ display: props.addStyle }}
           onClick={props.handleAddProduct}
         >
           Add to portfolio

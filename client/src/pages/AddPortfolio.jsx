@@ -20,7 +20,6 @@ const AddPortfolio = () => {
     setProducts(res.data)
   }
   const addProduct = async (updateList) => {
-    console.log(updateList)
     const res = await axios.put(
       `http://localhost:3001/sellers/updateproduct/${id}`,
       updateList
@@ -47,28 +46,23 @@ const AddPortfolio = () => {
   }
 
   const handleAddProduct = (pId) => {
-    console.log('clicked')
     const updateList = { product: [...userProductList, pId] }
     addProduct(updateList)
   }
 
   const handleDelete = async (productId) => {
     deleteProduct(productId)
-    console.log('click')
   }
 
   const deleteProduct = async (productId) => {
     const index = userProductList.indexOf(productId)
-    console.log(userProductList)
+
     let updateList = userProductList.splice(index, 1)
     updateList = { product: [...updateList] }
-    console.log(updateList)
 
     const res = await axios
       .put(`http://localhost:3001/sellers/updateproduct/${id}`, updateList)
-      .then((response) => {
-        console.log(response)
-      })
+      .then((response) => {})
 
     getProducts()
     getUserProduct()
@@ -102,7 +96,9 @@ const AddPortfolio = () => {
               {...product}
               handleAddProduct={() => handleAddProduct(product._id)}
               handleDelete={() => handleDelete(product._id)}
-              portStyle={'none'}
+              editStyle={'none'}
+              deleteStyle={'none'}
+              key={product._id}
             />
           ))}
         </div>
@@ -114,21 +110,6 @@ const AddPortfolio = () => {
     <div>
       AddPortfolio
       {render()}
-      {/* <div>
-        <h3>Current Portfolio</h3>
-        {userProducts.map((product) => (
-          <Product {...product} key={product._id} />
-        ))}
-      </div>
-      <div>
-        <h3>Avaliable Product</h3>
-        {products.map((product) => (
-          <Product
-            {...product}
-            handleAddProduct={() => handleAddProduct(product._id)}
-          />
-        ))}
-      </div> */}
     </div>
   )
 }

@@ -31,7 +31,7 @@ const main = async () => {
       name: 'Loost fit T-Shirt',
       price: 14.99,
       Desc: 'Luxury with Style',
-      img: 'https://m.media-amazon.com/images/I/71sMS5i3wxL._AC_UX342_.jpg',
+      img: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
       Brand: brands[3].name,
       Category: categories[3].name
     }

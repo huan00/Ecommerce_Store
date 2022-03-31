@@ -20,12 +20,9 @@ const EditPage = () => {
     const getProduct = async () => {
       const res = await axios.get(`http://localhost:3001/products/${id}`)
       setProduct(res.data)
-      console.log(res.data)
     }
     getProduct()
   }, [])
-
-  console.log(product)
 
   const handleName = (e) => {
     setProduct({ ...product, name: e.target.value })
@@ -45,8 +42,6 @@ const EditPage = () => {
   const handleCategory = (e) => {
     setProduct({ ...product, Category: e.target.value })
   }
-
-  console.log('here')
 
   let navigate = useNavigate()
   const handleSubmit = async (e, id) => {

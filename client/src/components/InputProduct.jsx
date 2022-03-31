@@ -18,8 +18,6 @@ const InputProduct = (props) => {
     getBrand()
   }, [])
 
-  console.log(category)
-
   return (
     <div>
       {props.title}
