@@ -50,9 +50,9 @@ const Home = () => {
 
   const newlist = convertFake(fakeProducts)
 
-  if (products.length <= 20) {
-    updateProductList(newlist)
-  }
+  // if (products.length <= 20) {
+  //   updateProductList(newlist)
+  // }
 
   const handleSearch = (e) => {
     e.preventDefault()

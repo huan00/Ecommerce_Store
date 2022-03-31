@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/Login.css'
 
 const Login = () => {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState('')
   const [inputLogin, setInputLogin] = useState({ userName: '', password: '' })
   const [resLogin, setResLogin] = useState({})
 
@@ -18,7 +18,7 @@ const Login = () => {
     ) {
       navigate(`/user/profile/${inputLogin.userName}`)
     } else {
-      incorrect = 'block'
+      setLogin(false)
     }
   }, [resLogin])
 
@@ -26,6 +26,10 @@ const Login = () => {
     e.preventDefault()
     const res = await axios.get(`/sellers/username/${inputLogin.userName}`)
     setResLogin(res.data)
+
+    if (!login) {
+      incorrect = 'block'
+    }
   }
 
   const handleUserName = (e) => {
