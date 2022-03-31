@@ -5,8 +5,9 @@ const RegisterForm = (props) => {
     <div className="register">
       <h1>Register</h1>
       <form onSubmit={props.onRegister} className="registerForm">
-        <label htmlFor="userName">UserName:</label>
+        <label htmlFor="userName"></label>
         <input
+          placeholder="UserName"
           name="Username"
           required
           type="text"
@@ -15,55 +16,62 @@ const RegisterForm = (props) => {
         />
         <section>
           <div className="formDiv">
-            <label htmlFor="password">Password:</label>
+            {/* <label htmlFor="password"></label> */}
             <input
-              name="password"
-              required
-              type="password"
-              id="password"
-              onChange={props.handlePassword}
-            />
-
-            <label htmlFor="password">Confirm Password:</label>
-            <input
+              placeholder="Confirm Password"
               name="confirmPassword"
               required
               type="password"
               id="password"
               onChange={props.handlePassword}
             />
+
+            {/* <label htmlFor="password"></label> */}
+            <input
+              placeholder="Password"
+              name="password"
+              required
+              type="password"
+              id="password"
+              className="=inputDiv"
+              onChange={props.handlePassword}
+            />
           </div>
         </section>
         <section>
           <div className="formDiv">
-            <label htmlFor="firstName">First Name:</label>
+            {/* <label htmlFor="lastName"></label> */}
             <input
-              name="firstName"
-              required
-              type="text"
-              id="firstName"
-              onChange={props.handleFirstName}
-            />
-            <label htmlFor="lastName">Last Name:</label>
-            <input
+              placeholder="Last Name"
               name="lastName"
               required
               type="text"
               id=""
               onChange={props.handleLastName}
             />
+            {/* <label htmlFor="firstName"></label> */}
+            <input
+              placeholder="First Name"
+              name="firstName"
+              required
+              type="text"
+              id="firstName"
+              onChange={props.handleFirstName}
+            />
           </div>
         </section>
-        <label htmlFor="email">E-Mail:</label>
+        <label htmlFor="email"></label>
         <input
+          placeholder="E-Mail"
           name="email"
           required
           type="text"
           id="email"
           onChange={props.handleEmail}
         />
-        <label htmlFor="phone">Phone Number:</label>
+        <label htmlFor="phone"></label>
         <input
+          placeholder="Phone Number"
           name="phone"
           required
           type="Number"
@@ -71,32 +79,36 @@ const RegisterForm = (props) => {
           onChange={props.handlePhone}
         />
 
-        <label htmlFor="street">Street:</label>
+        <label htmlFor="street"></label>
         <input
+          placeholder="Street"
           name="street"
           required
           type="text"
           id="street"
           onChange={props.handleStreet}
         />
-        <label htmlFor="city">city:</label>
+        <label htmlFor="city"></label>
         <input
+          placeholder="City"
           name="city"
           required
           type="text"
           id="city"
           onChange={props.handleCity}
         />
-        <label htmlFor="state">State:</label>
+        <label htmlFor="state"></label>
         <input
+          placeholder="State"
           name="state"
           required
           type="text"
           id="state"
           onChange={props.handleState}
         />
-        <label htmlFor="zipcode">ZipCode:</label>
+        <label htmlFor="zipcode"></label>
         <input
+          placeholder="ZipCode"
           name="zipCode"
           required
           type="text"

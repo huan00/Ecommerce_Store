@@ -19,47 +19,50 @@ const InputProduct = (props) => {
   }, [])
 
   return (
-    <div>
-      {props.title}
-      <form onSubmit={props.handleSubmit}>
-        <label htmlFor="name">Product Name:</label>
+    <div className="InputProduct">
+      <h1>Add Product</h1>
+      <form onSubmit={props.handleSubmit} className="AddProductForm">
+        <label htmlFor="name"></label>
         <input
+          required
           onChange={props.handleName}
           type="text"
           id="name"
           placeholder="Product Name"
         />
-        <label htmlFor="price">price</label>
+        <label htmlFor="price"></label>
         <input
+          required
           onChange={props.handlePrice}
-          type="text"
+          type="number"
           id="price"
           placeholder="Price"
         />
         <label htmlFor="Desc"></label>
         <input
+          required
           onChange={props.handleDesc}
           type="text"
           id="desc"
           placeholder="Description of item"
         />
-        <label htmlFor="img">Image URL</label>
+        <label htmlFor="img"></label>
         <input
           onChange={props.handleImg}
           type="text"
           id="img"
           placeholder="Image Url"
         />
-        <label htmlFor="brand">Brand</label>
-        <select name="" id="" onChange={props.handleBrand}>
+        <label htmlFor="brand"></label>
+        <select required id="" onChange={props.handleBrand}>
           {brand.map((bd) => (
-            <option key={bd._id} value={bd.name}>
+            <option className="optionList" key={bd._id} value={bd.name}>
               {bd.name}
             </option>
           ))}
         </select>
         <label htmlFor="category"></label>
-        <select name="" id="" onChange={props.handleCategory}>
+        <select required id="" onChange={props.handleCategory}>
           {category.map((cate) => (
             <option key={cate._id} value={cate.name}>
               {cate.name}

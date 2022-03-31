@@ -1,0 +1,46 @@
+.InputProduct {
+  width: 60%;
+  background-color: #bbbbbb;
+
+  margin: 50px auto;
+}
+
+.AddProductForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddProductForm input {
+  width: 80%;
+  margin: 10px auto;
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  font-size: 20px;
+}
+
+.AddProductForm input::placeholder {
+  padding: 0 0 0 10px;
+}
+
+.AddProductForm select {
+  width: 80%;
+  margin: 10px auto;
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  font-size: 20px;
+}
+
+.AddProductForm button {
+  width: 80%;
+  margin: 30px auto;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  background-color: #716f6f;
+  border-radius: 5px;
+
+  font-size: 1.5rem;
+  color: white;
+}

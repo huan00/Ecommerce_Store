@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import InputProduct from '../components/InputProduct'
+import '../styles/AddProduct.css'
 
 const AddProduct = () => {
   const [product, setProduct] = useState({
@@ -43,7 +44,6 @@ const AddProduct = () => {
   }
   return (
     <div>
-      InputProduct
       <InputProduct
         handleSubmit={handleSubmit}
         handleName={handleName}
