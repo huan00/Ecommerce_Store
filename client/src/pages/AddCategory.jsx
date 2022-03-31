@@ -16,7 +16,7 @@ const AddCategory = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const res = await axios
-      .post(`http://localhost:3001/category`, category)
+      .post(`/category`, category)
       .then((response) => console.log('success'))
 
     navigate('/')

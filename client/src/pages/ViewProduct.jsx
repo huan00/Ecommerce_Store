@@ -10,7 +10,7 @@ const ViewProduct = (props) => {
 
   useEffect(() => {
     const getProductDetail = async () => {
-      const res = await axios.get(`http://localhost:3001/products/${id}`)
+      const res = await axios.get(`/products/${id}`)
       setProduct(res.data)
     }
     getProductDetail()

@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     const getProducts = async () => {
-      const res = await axios.get('http://localhost:3001/products')
+      const res = await axios.get('/products')
       setProducts(res.data)
     }
     getProducts()
@@ -22,15 +22,12 @@ const Home = () => {
   }, [search])
 
   const getFakeProduct = async () => {
-    const res = await axios.get(`https://fakestoreapi.com/products?limit=50`)
+    const res = await axios.get(`/products?limit=50`)
     setFakeProducts(res.data)
   }
 
   const updateProductList = async (newlist) => {
-    const res = await axios.post(
-      `http://localhost:3001/products/postmany`,
-      newlist
-    )
+    const res = await axios.post(`/products/postmany`, newlist)
   }
 
   const convertFake = (fakeProducts) => {

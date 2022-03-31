@@ -24,7 +24,7 @@ const AddBrand = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const res = await axios
-      .post(`http://localhost:3001/brands`, brand)
+      .post(`/brands`, brand)
       .then((response) => console.log('success'))
 
     navigate('/')

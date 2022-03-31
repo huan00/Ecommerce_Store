@@ -18,7 +18,7 @@ const EditPage = () => {
 
   useEffect(() => {
     const getProduct = async () => {
-      const res = await axios.get(`http://localhost:3001/products/${id}`)
+      const res = await axios.get(`/products/${id}`)
       setProduct(res.data)
     }
     getProduct()
@@ -47,7 +47,7 @@ const EditPage = () => {
   const handleSubmit = async (e, id) => {
     e.preventDefault()
     const res = await axios
-      .put(`http://localhost:3001/products/${id}`, product)
+      .put(`/products/${id}`, product)
       .then((response) => console.log('success'))
 
     navigate('/')

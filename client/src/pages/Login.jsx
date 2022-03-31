@@ -23,9 +23,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault()
-    const res = await axios.get(
-      `http://localhost:3001/sellers/username/${inputLogin.userName}`
-    )
+    const res = await axios.get(`/sellers/username/${inputLogin.userName}`)
     setResLogin(res.data)
   }
 

@@ -17,14 +17,11 @@ const AddPortfolio = () => {
   }, [])
 
   const getProducts = async () => {
-    const res = await axios.get('http://localhost:3001/products')
+    const res = await axios.get('/products')
     setProducts(res.data)
   }
   const addProduct = async (updateList) => {
-    const res = await axios.put(
-      `http://localhost:3001/sellers/updateproduct/${id}`,
-      updateList
-    )
+    const res = await axios.put(`/sellers/updateproduct/${id}`, updateList)
     setUserProductList(updateList.product)
 
     getProducts()
@@ -33,16 +30,12 @@ const AddPortfolio = () => {
     render()
   }
   const getUserProductList = async () => {
-    const res = await axios.get(
-      `http://localhost:3001/sellers/productlist/${id}`
-    )
+    const res = await axios.get(`/sellers/productlist/${id}`)
     setUserProductList(res.data)
   }
 
   const getUserProduct = async () => {
-    const res = await axios.get(
-      `http://localhost:3001/products/getProductByUser/${id}`
-    )
+    const res = await axios.get(`/products/getProductByUser/${id}`)
     setUserProducts(res.data)
   }
 
@@ -62,7 +55,7 @@ const AddPortfolio = () => {
     updateList = { product: [...updateList] }
 
     const res = await axios
-      .put(`http://localhost:3001/sellers/updateproduct/${id}`, updateList)
+      .put(`/sellers/updateproduct/${id}`, updateList)
       .then((response) => {})
 
     getProducts()
