@@ -2,15 +2,22 @@ import React from 'react'
 
 const ProductOverview = (props) => {
   return (
-    <div>
-      <img src={props.img} alt="poster" style={{ width: '200px' }} />
-      <h3>{props.name}</h3>
-      <p>Price: {props.price}</p>
-      <p>Brand: {props.Brand}</p>
-      {/* <div>
-        <button>Edit</button>
-        <button>Delete</button>
-      </div> */}
+    <div className="ProductOverview">
+      <div>
+        <img
+          className="ProductImg"
+          src={props.img}
+          alt="poster"
+          style={{ width: '200px' }}
+        />
+      </div>
+      <div>
+        <h3 className="ProductName">{props.name}</h3>
+      </div>
+      <div>
+        <p>${props.price}</p>
+        <p className="brand"> {props.Brand}</p>
+      </div>
     </div>
   )
 }

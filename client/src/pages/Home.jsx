@@ -79,6 +79,7 @@ const Home = () => {
           {products.map((product) => (
             <div className="productContainer">
               <Link
+                className="link"
                 to={`/products/viewproduct/${product._id}`}
                 key={product._id}
               >
@@ -96,9 +97,11 @@ const Home = () => {
       return (
         <div className="homeProduct">
           {filterSearch(search).map((filter) => (
-            <Link to="">
-              <ProductOverview {...filter} />
-            </Link>
+            <div className="productContainer">
+              <Link to={`/products/viewproduct/${filter._id}`} className="link">
+                <ProductOverview {...filter} />
+              </Link>
+            </div>
           ))}
         </div>
       )

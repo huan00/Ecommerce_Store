@@ -8,13 +8,13 @@ const Header = () => {
       <nav className="navBar">
         <ul>
           <Link to="/">
-            <li>Home</li>
+            <li className="navLink">Home</li>
           </Link>
           <Link to="/register">
-            <li>Register</li>
+            <li className="navLink">Register</li>
           </Link>
           <Link to="/login">
-            <li>Login</li>
+            <li className="navLink">Login</li>
           </Link>
         </ul>
         <img src={logo} alt="logo"></img>
