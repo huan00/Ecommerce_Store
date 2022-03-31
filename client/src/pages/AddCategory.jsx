@@ -2,6 +2,7 @@ import { useState } from 'react'
 import InputCategory from '../components/InputCategory'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import '../styles/AddCategory.css'
 
 const AddCategory = () => {
   const [category, setCategory] = useState({
@@ -21,7 +22,7 @@ const AddCategory = () => {
     navigate('/')
   }
   return (
-    <div>
+    <div className="AddCategory">
       <InputCategory
         handleCategory={handleCategory}
         handleSubmit={handleSubmit}

@@ -1,0 +1,33 @@
+.AddCategory {
+  width: 60%;
+  margin: 50px auto;
+  padding: 30px 0;
+  background-color: #bbbbbb;
+}
+
+.CategoryForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.CategoryForm input {
+  width: 80%;
+  margin: 10px auto;
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  font-size: 20px;
+}
+
+.CategoryForm button {
+  width: 80%;
+  margin: 30px auto;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  background-color: #716f6f;
+  border-radius: 5px;
+
+  font-size: 1.5rem;
+  color: white;
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import InputBrand from '../components/InputBrand'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import '../styles/AddBrand.css'
 
 const AddBrand = () => {
   const [brand, setBrand] = useState({
@@ -30,7 +31,7 @@ const AddBrand = () => {
   }
 
   return (
-    <div>
+    <div className="AddBrand">
       <InputBrand
         handleSubmit={handleSubmit}
         handleName={handleName}
