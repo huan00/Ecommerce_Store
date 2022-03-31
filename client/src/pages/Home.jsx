@@ -27,7 +27,10 @@ const Home = () => {
   }
 
   const updateProductList = async (newlist) => {
-    const res = await axios.post(`/products/postmany`, newlist)
+    const res = await axios.post(
+      `https://fakestoreapi.com/products/postmany`,
+      newlist
+    )
   }
 
   const convertFake = (fakeProducts) => {
@@ -49,7 +52,7 @@ const Home = () => {
   }
 
   const newlist = convertFake(fakeProducts)
-  console.log(newlist)
+
   if (products.length <= 20) {
     updateProductList(newlist)
   }
