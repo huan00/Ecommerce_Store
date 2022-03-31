@@ -16,9 +16,13 @@
 .profileNav {
   grid-area: sidebar;
 
-  margin: auto;
+  margin: 50px auto;
   background-color: #aaaaaa;
   border-radius: 10px;
+  height: 500px;
+  width: 100px;
+  position: fixed;
+  top: 300px;
 }
 .profileNav ul {
   height: 500px;
@@ -49,6 +53,7 @@
   grid-area: main;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 

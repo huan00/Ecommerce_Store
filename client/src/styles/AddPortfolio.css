@@ -1,0 +1,33 @@
+body {
+  /* background-color: aqua; */
+}
+
+.portfolio {
+  height: 70vh;
+  display: flex;
+}
+
+.portDiv {
+  position: relative;
+  width: 45%;
+  margin: 0 auto;
+  justify-content: center;
+  border: 1px black solid;
+  overflow: auto;
+}
+
+.portfolio div h2 {
+  margin: 10px 0;
+  position: fixed;
+  z-index: 10;
+}
+
+.portDiv .product {
+  width: 70%;
+  margin: 10px auto;
+  text-align: left;
+}
+
+.portHeader {
+  margin: 0 0 50px 0;
+}

@@ -11,6 +11,7 @@ const CategoryController = require('./controllers/CategoryController')
 
 const app = express()
 
+app.use(express.static(`${__dirname}/client/build`))
 app.use(cors())
 app.use(express.json())
 app.use(logger('dev'))
@@ -56,6 +57,10 @@ app.post('/brands', BrandController.postBrand)
 
 app.get('/category', CategoryController.getCategory)
 app.post('/category', CategoryController.getCategory)
+
+app.get('/*', (req, res) => {
+  res.sendFile(`${__dirname}/client/build/index.html`)
+})
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`)

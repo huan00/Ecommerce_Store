@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Product from '../components/Product'
+import '../styles/AddPortfolio.css'
 
 const AddPortfolio = () => {
   const { id } = useParams()
@@ -77,9 +78,11 @@ const AddPortfolio = () => {
 
   const render = () => {
     return (
-      <div>
-        <div>
-          <h3>Current Portfolio</h3>
+      <div className="portfolio">
+        <div className="currentPort portDiv">
+          <div className="portHeader">
+            <h2>Current Portfolio</h2>
+          </div>
           {userProducts.map((product) => (
             <Product
               {...product}
@@ -89,8 +92,10 @@ const AddPortfolio = () => {
             />
           ))}
         </div>
-        <div>
-          <h3>Avaliable Product</h3>
+        <div className="avaliablePort portDiv">
+          <div className="portHeader">
+            <h2>Avaliable Product</h2>
+          </div>
           {products.map((product) => (
             <Product
               {...product}
@@ -106,12 +111,7 @@ const AddPortfolio = () => {
     )
   }
 
-  return (
-    <div>
-      AddPortfolio
-      {render()}
-    </div>
-  )
+  return <div>{render()}</div>
 }
 
 export default AddPortfolio
