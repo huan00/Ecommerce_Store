@@ -8,23 +8,31 @@ const LoginForm = (props) => {
   }
   return (
     <div>
-      <div>
+      <div className="login">
         <h1>Login</h1>
-        <form onSubmit={props.handleLogin}>
-          <label htmlFor="username">UserName:</label>
-          <input type="text" id="username" onChange={props.handleUserName} />
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name=""
-            id="password"
-            onChange={props.handlePassword}
-          />
-          <button>Login</button>
-        </form>
-      </div>
-      <div>
-        <Link to="/forgotpassword" />
+        <div className="formContent">
+          <form onSubmit={props.handleLogin} className="loginForm">
+            <label htmlFor="username"></label>
+            <input
+              type="text"
+              id="username"
+              placeholder="UserName"
+              onChange={props.handleUserName}
+            />
+            <label htmlFor="password"></label>
+            <input
+              type="password"
+              name=""
+              id="password"
+              placeholder="Password"
+              onChange={props.handlePassword}
+            />
+            <button className="loginBtn">Login</button>
+          </form>
+        </div>
+        <div>
+          <Link to="/forgotpassword" />
+        </div>
       </div>
     </div>
   )

@@ -1,0 +1,48 @@
+body {
+  /* background-color: black; */
+}
+
+.login {
+  border: 1px black solid;
+  border-radius: 10px;
+  width: 60%;
+  height: 400px;
+  margin: 100px auto;
+  background-color: white;
+}
+
+.login h1 {
+  margin: 50px 0;
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm input {
+  width: 30%;
+  margin: 0 auto;
+  border: none;
+  height: 30px;
+  border-bottom: 1px solid black;
+}
+
+.loginBtn {
+  width: 30%;
+  height: 30px;
+  margin: 20px auto;
+  background-color: #aaaaaa;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.loginForm input:focus {
+  outline: none;
+}

@@ -2,6 +2,7 @@ import LoginForm from '../components/LoginForm'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import '../styles/Login.css'
 
 const Login = () => {
   const [login, setLogin] = useState(false)
@@ -37,7 +38,6 @@ const Login = () => {
 
   return (
     <div>
-      Login
       <LoginForm
         handleLogin={handleLogin}
         handleUserName={handleUserName}

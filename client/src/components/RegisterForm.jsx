@@ -2,88 +2,109 @@ import React from 'react'
 
 const RegisterForm = (props) => {
   return (
-    <div>
-      <form onSubmit={props.onRegister}>
+    <div className="register">
+      <h1>Register</h1>
+      <form onSubmit={props.onRegister} className="registerForm">
         <label htmlFor="userName">UserName:</label>
         <input
+          name="Username"
+          required
           type="text"
           id="userName"
-          placeholder="UserName"
           onChange={props.handleUserName}
         />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="text"
-          id="password"
-          placeholder="Password"
-          onChange={props.handlePassword}
-        />
-        <label htmlFor="password">Confirm Password:</label>
-        <input
-          type="text"
-          id="password"
-          placeholder="Confirm Password"
-          onChange={props.handlePassword}
-        />
-        <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          id="firstName"
-          placeholder="First Name"
-          onChange={props.handleFirstName}
-        />
-        <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          id=""
-          placeholder="Last Name"
-          onChange={props.handleLastName}
-        />
+        <section>
+          <div className="formDiv">
+            <label htmlFor="password">Password:</label>
+            <input
+              name="password"
+              required
+              type="password"
+              id="password"
+              onChange={props.handlePassword}
+            />
+
+            <label htmlFor="password">Confirm Password:</label>
+            <input
+              name="confirmPassword"
+              required
+              type="password"
+              id="password"
+              onChange={props.handlePassword}
+            />
+          </div>
+        </section>
+        <section>
+          <div className="formDiv">
+            <label htmlFor="firstName">First Name:</label>
+            <input
+              name="firstName"
+              required
+              type="text"
+              id="firstName"
+              onChange={props.handleFirstName}
+            />
+            <label htmlFor="lastName">Last Name:</label>
+            <input
+              name="lastName"
+              required
+              type="text"
+              id=""
+              onChange={props.handleLastName}
+            />
+          </div>
+        </section>
         <label htmlFor="email">E-Mail:</label>
         <input
+          name="email"
+          required
           type="text"
           id="email"
-          placeholder="E-mail"
           onChange={props.handleEmail}
         />
         <label htmlFor="phone">Phone Number:</label>
         <input
+          name="phone"
+          required
           type="Number"
           id="phone"
-          placeholder="Phone Number"
           onChange={props.handlePhone}
         />
 
-        <label htmlFor="street">Street</label>
+        <label htmlFor="street">Street:</label>
         <input
+          name="street"
+          required
           type="text"
           id="street"
-          placeholder="street"
           onChange={props.handleStreet}
         />
-        <label htmlFor="city">city</label>
+        <label htmlFor="city">city:</label>
         <input
+          name="city"
+          required
           type="text"
           id="city"
-          placeholder="city"
           onChange={props.handleCity}
         />
-        <label htmlFor="state">State</label>
+        <label htmlFor="state">State:</label>
         <input
+          name="state"
+          required
           type="text"
           id="state"
-          placeholder="state"
           onChange={props.handleState}
         />
-        <label htmlFor="zipcode">ZipCode</label>
+        <label htmlFor="zipcode">ZipCode:</label>
         <input
+          name="zipCode"
+          required
           type="text"
           id="zipcode"
-          placeholder="zipcode"
           onChange={props.handleZipCode}
         />
 
-        <button>Register</button>
+        <button className="registerBtn">Register</button>
       </form>
     </div>
   )

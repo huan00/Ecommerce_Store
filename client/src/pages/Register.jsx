@@ -2,6 +2,7 @@ import RegisterForm from '../components/RegisterForm'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
+import '../styles/Register.css'
 
 const Register = () => {
   let navigate = useNavigate()
@@ -90,6 +91,7 @@ const Register = () => {
 
   const onRegister = async (e) => {
     e.preventDefault()
+
     const res = await axios
       .post('http://localhost:3001/sellers/register', registerForm)
       .then((res) => console.log('successful'))
@@ -100,7 +102,6 @@ const Register = () => {
 
   return (
     <div>
-      Register
       <RegisterForm
         onRegister={onRegister}
         handleFirstName={handleFirstName}

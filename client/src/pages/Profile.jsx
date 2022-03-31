@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import Product from '../components/Product'
-import ViewProduct from './ViewProduct'
+import '../styles/Profile.css'
 
 const Profile = () => {
   const id = useParams()
@@ -60,7 +60,7 @@ const Profile = () => {
 
   const render = (userProduct) => {
     return (
-      <div>
+      <>
         {userProduct.map((el) => (
           <Product
             {...el}
@@ -69,28 +69,32 @@ const Profile = () => {
             handleEdit={() => handleEdit(el._id)}
           />
         ))}
-      </div>
+      </>
     )
   }
 
   return (
-    <div>
-      <nav>
-        <Link to="/products/addproduct">
-          <li>Add Product</li>
-        </Link>
-        <Link to={`/sellers/addportfolio/${userId}`}>
-          <li>Add Product to portfolio</li>
-        </Link>
-        <Link to="/products/addcategory">
-          <li>Add Category</li>
-        </Link>
-        <Link to="/products/addbrand">
-          <li>Add Brand</li>
-        </Link>
-      </nav>
-      <h1>Welcome {user}</h1>
-      {render(userProduct)}
+    <div className="profile">
+      <div className="profileNav">
+        <ul>
+          <Link to="/products/addproduct">
+            <li>Add Product</li>
+          </Link>
+          <Link to={`/sellers/addportfolio/${userId}`}>
+            <li>Add Product to portfolio</li>
+          </Link>
+          <Link to="/products/addcategory">
+            <li>Add Category</li>
+          </Link>
+          <Link to="/products/addbrand">
+            <li>Add Brand</li>
+          </Link>
+        </ul>
+      </div>
+      <div className="profileTitle">
+        <h1>{user}</h1>
+      </div>
+      <div className="profileContent">{render(userProduct)}</div>
     </div>
   )
 }
