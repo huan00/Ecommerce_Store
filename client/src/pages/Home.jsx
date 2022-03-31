@@ -95,8 +95,12 @@ const Home = () => {
         <div className="homeProduct">
           {filterSearch(search).map((filter) => (
             <div className="productContainer">
-              <Link to={`/products/viewproduct/${filter._id}`} className="link">
-                <ProductOverview {...filter} />
+              <Link
+                to={`/products/viewproduct/${filter._id}`}
+                className="link"
+                key={filter._id}
+              >
+                <ProductOverview {...filter} key={filter._id} />
               </Link>
             </div>
           ))}

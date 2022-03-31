@@ -38,18 +38,18 @@ const Register = () => {
     setRegisterForm(temp)
   }
   const handleUserName = (e) => {
-    e.preventDefault()
-    let temp = { ...registerForm }
-    let userName = e.target.value
-    temp.login.userName = userName
-    setRegisterForm(temp)
+    // e.preventDefault()
+    // let temp = { ...registerForm }
+    // let userName = e.target.value
+    // temp.login.userName = userName
+    // setRegisterForm(temp)
   }
   const handlePassword = (e) => {
-    e.preventDefault()
-    let temp = { ...registerForm }
-    let password = e.target.value
-    temp.login.password = password
-    setRegisterForm(temp)
+    // e.preventDefault()
+    // let temp = { ...registerForm }
+    // let password = e.target.value
+    // temp.login.password = password
+    // setRegisterForm(temp)
   }
   const handleEmail = (e) => {
     e.preventDefault()
@@ -89,6 +89,26 @@ const Register = () => {
     setRegisterForm(temp)
   }
 
+  const handleForm = (e) => {
+    e.preventDefault()
+    let temp = { ...registerForm }
+    console.log(e.target.name)
+    console.log(e.target.value)
+    switch (e.target.name) {
+      case 'Username':
+        let userName = e.target.value
+        temp.name.userName = userName
+        setRegisterForm(temp)
+        break
+
+      case 'password':
+        let password = e.target.value
+        temp.login.password = password
+        setRegisterForm(temp)
+        break
+    }
+  }
+
   const onRegister = async (e) => {
     e.preventDefault()
 
@@ -99,6 +119,8 @@ const Register = () => {
 
     navigate('/login')
   }
+
+  console.log(registerForm)
 
   return (
     <div>
@@ -114,6 +136,7 @@ const Register = () => {
         handleStreet={handleStreet}
         handleState={handleState}
         handleZipCode={handleZipCode}
+        handleForm={handleForm}
       />
     </div>
   )

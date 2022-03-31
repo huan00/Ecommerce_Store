@@ -31,7 +31,7 @@ const RegisterForm = (props) => {
               name="confirmPassword"
               required
               type="password"
-              id="password"
+              id="confirmPassword"
               onChange={props.handlePassword}
             />
 
