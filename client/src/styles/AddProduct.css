@@ -1,6 +1,6 @@
 .InputProduct {
   width: 60%;
-  background-color: #bbbbbb;
+  background-color: white;
 
   margin: 50px auto;
 }
@@ -14,7 +14,7 @@
   width: 80%;
   margin: 10px auto;
   border: none;
-  border-radius: 5px;
+  border-bottom: 1px black solid;
   height: 35px;
   font-size: 20px;
 }
@@ -27,7 +27,7 @@
   width: 80%;
   margin: 10px auto;
   border: none;
-  border-radius: 5px;
+  border-bottom: 1px solid black;
   height: 35px;
   font-size: 20px;
 }
