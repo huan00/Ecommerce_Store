@@ -10,8 +10,6 @@ const Home = () => {
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
   const [fakeProducts, setFakeProducts] = useState([])
-  const [currentPage, setCurrentPage] = useState(1)
-  const [postPerPage, setPostsPerPage] = useState(10)
 
   useEffect(() => {
     const getProducts = async () => {
