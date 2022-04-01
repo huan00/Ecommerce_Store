@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import Product from '../components/Product'
+
 import ProductOverview from '../components/ProductOverview'
 import { Link } from 'react-router-dom'
 import Search from '../components/Search'

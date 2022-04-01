@@ -4,7 +4,7 @@
 
 ##### By: Huan Zeng
 
-[Website]() | [GitHub](https://github.com/huan00/Huan_Ecommerce_Store) | [LinkedIn](https://www.linkedin.com/in/huan-zeng) | [Trello](https://trello.com/b/JEXABH2h/ecommercestore)
+[Website](https://huanecommerce.herokuapp.com/) | [GitHub](https://github.com/huan00/Huan_Ecommerce_Store) | [LinkedIn](https://www.linkedin.com/in/huan-zeng) | [Trello](https://trello.com/b/JEXABH2h/ecommercestore)
 
 <hr>
 
@@ -22,9 +22,25 @@ This is a Ecommerce website. The site will allow sellers to post their products 
 - JSX react
 - Express
 - MongDB
-
 <hr>
 
-### Updates:
+### Page Screenshot
 
-Page begin construction on Monday March 28, 2022. Status update will be provided here.
+![Homepage](/client/src/images/homepage.png)
+
+### Current Feature:
+
+- ViewProduct
+- Register for an Account
+- Login
+- Add product to database
+- Edit product
+- Delete product
+- Add product to account portfolio
+- Delete account
+
+### Future Updates:
+
+- Customer accounts
+- Shopping carts
+- Checkout options
