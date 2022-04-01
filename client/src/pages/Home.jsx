@@ -62,6 +62,7 @@ const Home = () => {
   const filterSearch = (search) => {
     let filtered = [{}]
     products.map((product) => {
+      console.log(product)
       if (product.name.toLowerCase().includes(search.toLowerCase())) {
         filtered = [...filtered, product]
       }
@@ -74,7 +75,7 @@ const Home = () => {
       return (
         <div className="homeProduct">
           {products.map((product) => (
-            <div className="productContainer">
+            <div className="productContainer" key={product._id}>
               <Link
                 className="link"
                 to={`/products/viewproduct/${product._id}`}

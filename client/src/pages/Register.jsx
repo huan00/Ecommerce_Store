@@ -38,18 +38,18 @@ const Register = () => {
     setRegisterForm(temp)
   }
   const handleUserName = (e) => {
-    // e.preventDefault()
-    // let temp = { ...registerForm }
-    // let userName = e.target.value
-    // temp.login.userName = userName
-    // setRegisterForm(temp)
+    e.preventDefault()
+    let temp = { ...registerForm }
+    let userName = e.target.value
+    temp.login.userName = userName
+    setRegisterForm(temp)
   }
   const handlePassword = (e) => {
-    // e.preventDefault()
-    // let temp = { ...registerForm }
-    // let password = e.target.value
-    // temp.login.password = password
-    // setRegisterForm(temp)
+    e.preventDefault()
+    let temp = { ...registerForm }
+    let password = e.target.value
+    temp.login.password = password
+    setRegisterForm(temp)
   }
   const handleEmail = (e) => {
     e.preventDefault()

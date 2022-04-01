@@ -7,11 +7,11 @@ const InputProduct = (props) => {
 
   useEffect(() => {
     const getCategory = async () => {
-      const res = await axios.get(`http://localhost:3001/category`)
+      const res = await axios.get(`/category`)
       setCategory(res.data)
     }
     const getBrand = async () => {
-      const res = await axios.get(`http://localhost:3001/brands`)
+      const res = await axios.get(`/brands`)
       setBrand(res.data)
     }
     getCategory()
@@ -21,10 +21,9 @@ const InputProduct = (props) => {
   return (
     <div className="InputProduct">
       <h1>Add Product</h1>
-      <form className="AddProductForm">
+      <form className="AddProductForm" onSubmit={props.onSubmit}>
         <label htmlFor="name"></label>
         <input
-          required
           onChange={props.handleName}
           type="text"
           id="name"
@@ -32,7 +31,6 @@ const InputProduct = (props) => {
         />
         <label htmlFor="price"></label>
         <input
-          required
           onChange={props.handlePrice}
           type="number"
           id="price"
@@ -40,7 +38,6 @@ const InputProduct = (props) => {
         />
         <label htmlFor="Desc"></label>
         <input
-          required
           onChange={props.handleDesc}
           type="text"
           id="desc"
@@ -54,7 +51,7 @@ const InputProduct = (props) => {
           placeholder="Image Url"
         />
         <label htmlFor="brand"></label>
-        <select required id="" onChange={props.handleBrand}>
+        <select id="" onChange={props.handleBrand}>
           {brand.map((bd) => (
             <option className="optionList" key={bd._id} value={bd.name}>
               {bd.name}
@@ -62,7 +59,7 @@ const InputProduct = (props) => {
           ))}
         </select>
         <label htmlFor="category"></label>
-        <select required id="" onChange={props.handleCategory}>
+        <select id="" onChange={props.handleCategory}>
           {category.map((cate) => (
             <option key={cate._id} value={cate.name}>
               {cate.name}

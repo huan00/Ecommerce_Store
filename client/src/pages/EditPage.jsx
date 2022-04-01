@@ -14,40 +14,44 @@ const EditPage = () => {
     img: '',
     Category: ''
   })
-  const [updateProd, setUpdateProd] = useState()
+  const [updateProd, setUpdateProd] = useState({
+    ...product
+  })
 
   useEffect(() => {
     const getProduct = async () => {
       const res = await axios.get(`/products/${id}`)
       setProduct(res.data)
+      setUpdateProd({ ...product })
     }
     getProduct()
   }, [])
 
   const handleName = (e) => {
-    setProduct({ ...product, name: e.target.value })
+    setUpdateProd({ ...updateProd, name: e.target.value })
   }
   const handlePrice = (e) => {
-    setProduct({ ...product, price: e.target.value })
+    setUpdateProd({ ...updateProd, price: e.target.value })
   }
   const handleDesc = (e) => {
-    setProduct({ ...product, Desc: e.target.value })
+    setUpdateProd({ ...updateProd, Desc: e.target.value })
   }
   const handleBrand = (e) => {
-    setProduct({ ...product, Brand: e.target.value })
+    setUpdateProd({ ...updateProd, Brand: e.target.value })
   }
   const handleImg = (e) => {
-    setProduct({ ...product, img: e.target.value })
+    setUpdateProd({ ...updateProd, img: e.target.value })
   }
   const handleCategory = (e) => {
-    setProduct({ ...product, Category: e.target.value })
+    setUpdateProd({ ...updateProd, Category: e.target.value })
   }
-
+  console.log(id)
   let navigate = useNavigate()
-  const handleSubmit = async (e, id) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log(updateProd)
     const res = await axios
-      .put(`/products/${id}`, product)
+      .put(`/products/${id}`, updateProd)
       .then((response) => console.log('success'))
 
     navigate('/')
@@ -58,7 +62,7 @@ const EditPage = () => {
       EditPage
       <Product {...product} style={'none'} />
       <InputProduct
-        handleSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         handleName={handleName}
         handlePrice={handlePrice}
         handleDesc={handleDesc}

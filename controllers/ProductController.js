@@ -63,13 +63,16 @@ const postMany = async (req, res) => {
 const postUpdateProduct = async (req, res) => {
   try {
     const { id } = req.params
+    console.log(id)
     const updateProduct = req.body
-    const products = await Product.findByIdAndUpdate(
+    console.log(updateProduct)
+    console.log('called this')
+    await Product.findByIdAndUpdate(
       id,
-      { $set: { updateProduct } },
+      { $set: updateProduct },
       { upsert: true }
     )
-    return res.status(201).json({ products })
+    return res.status(201).send('success')
   } catch (e) {
     return res.status(500).json({ e: e.message })
   }
