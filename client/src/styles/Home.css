@@ -19,10 +19,16 @@ body {
   overflow: auto;
   margin: 0 auto;
 }
+.homeProduct div img {
+  max-width: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+}
 
 .productContainer {
-  width: 200px;
-  height: 275px;
+  width: 300px;
+  height: 500px;
   margin: 20px 5px;
   background-color: white;
 
@@ -35,9 +41,14 @@ body {
   border: 1px solid #aaaaaa;
 }
 
-.link {
-  text-decoration: none;
-  color: black;
+.productContainer div {
+  padding: 20px;
+}
+
+.productContainer img {
+  margin-bottom: 20px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .ProductOverview {
@@ -45,45 +56,25 @@ body {
   display: flex;
   flex-direction: column;
 
-  width: 200px;
-  height: 300px;
-
-  justify-content: space-evenly;
-  /* align-items: center; */
+  height: 100%;
 }
-
-.ProductOverview div img {
-  max-width: 100px;
-  max-height: 140px;
-  margin: 0 auto;
-}
-
-.ProductOverview div img {
-  max-width: 100px;
-  max-height: 140px;
-  margin: 0 auto;
-}
-
-/* .ProductImg {
-  margin-bottom: 20px;
-  width: 50%;
-  height: 50%;
-  background-color: black;
-} */
 
 .ProductOverview div {
   padding: 0;
   width: 100%;
   display: flex;
-}
-
-.ProductOverview div h3 {
-  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .ProductOverview div p {
   padding: 0 10px;
-  margin: 0 auto;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  width: 90%;
 }
 
 .ProductName {
@@ -92,4 +83,9 @@ body {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.ProductImg {
+  width: 250px;
+  height: 275px;
 }

@@ -46,22 +46,12 @@ const EditPage = () => {
   let navigate = useNavigate()
   const handleSubmit = async (e, id) => {
     e.preventDefault()
-    let index = product.indexOf('_id')
-    setProduct(product.splice(index, 1))
-    console.log(product)
     const res = await axios
       .put(`/products/${id}`, product)
       .then((response) => console.log('success'))
 
     navigate('/')
   }
-  console.log(product.indexOf('_id'))
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   console.log('hello')
-  // }
-
-  console.log(product)
 
   return (
     <div>
