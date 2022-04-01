@@ -50,9 +50,8 @@ const AddPortfolio = () => {
 
   const deleteProduct = async (productId) => {
     const index = userProductList.indexOf(productId)
-
-    let updateList = userProductList.splice(index, 1)
-    updateList = { product: [...updateList] }
+    setUserProductList(userProductList.splice(index, 1))
+    const updateList = { product: [...userProductList] }
 
     const res = await axios
       .put(`/sellers/updateproduct/${id}`, updateList)
