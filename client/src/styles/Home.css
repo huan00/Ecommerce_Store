@@ -8,9 +8,6 @@ body {
   background-color: #dddddd;
 }
 
-.homePage {
-}
-
 .homeProduct {
   display: flex;
   flex-wrap: wrap;
