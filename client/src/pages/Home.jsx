@@ -10,6 +10,8 @@ const Home = () => {
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
   const [fakeProducts, setFakeProducts] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postPerPage, setPostsPerPage] = useState(10)
 
   useEffect(() => {
     const getProducts = async () => {
@@ -60,7 +62,7 @@ const Home = () => {
   }
 
   const filterSearch = (search) => {
-    let filtered = [{}]
+    let filtered = []
     products.map((product) => {
       if (product.name.toLowerCase().includes(search.toLowerCase())) {
         filtered = [...filtered, product]
