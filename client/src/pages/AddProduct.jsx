@@ -57,7 +57,6 @@ const AddProduct = () => {
         handleBrand={handleBrand}
         handleImg={handleImg}
         handleCategory={handleCategory}
-        handleRequire={handleRequire}
       />
     </div>
   )

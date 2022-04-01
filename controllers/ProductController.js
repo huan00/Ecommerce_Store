@@ -66,7 +66,7 @@ const postUpdateProduct = async (req, res) => {
     const updateProduct = req.body
     const products = await Product.findByIdAndUpdate(
       id,
-      { $set: updateProduct },
+      { $set: { updateProduct } },
       { upsert: true }
     )
     return res.status(201).json({ products })
