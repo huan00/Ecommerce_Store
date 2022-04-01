@@ -44,7 +44,12 @@ const InputProduct = (props) => {
           placeholder="Description of item"
         />
         <label htmlFor="img"></label>
-        <input type="text" id="img" placeholder="Image Url" />
+        <input
+          type="text"
+          id="img"
+          placeholder="Image Url"
+          onChange={props.handleImg}
+        />
         <label htmlFor="brand"></label>
         <select id="" onChange={props.handleBrand}>
           {brand.map((bd) => (
