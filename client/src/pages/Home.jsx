@@ -60,7 +60,7 @@ const Home = () => {
   }
 
   const filterSearch = (search) => {
-    let filtered = []
+    let filtered = [{}]
     products.map((product) => {
       if (product.name.toLowerCase().includes(search.toLowerCase())) {
         filtered = [...filtered, product]
