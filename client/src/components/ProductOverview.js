@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ProductOverview = (props) => {
   return (
     <div className="ProductOverview">

@@ -1,5 +1,3 @@
-import React from 'react'
-
 const InputBrand = (props) => {
   return (
     <div>
