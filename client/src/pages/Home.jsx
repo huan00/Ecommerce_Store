@@ -74,7 +74,7 @@ const Home = () => {
       return (
         <div className="homeProduct">
           {products.map((product) => (
-            <div className="productContainer">
+            <div className="productContainer" key={product._id}>
               <Link
                 className="link"
                 to={`/products/viewproduct/${product._id}`}
