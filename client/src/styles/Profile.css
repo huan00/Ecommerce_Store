@@ -50,11 +50,13 @@
 
 .profileContent {
   margin: 50px 0;
+  height: 60vh;
   grid-area: main;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  overflow: auto;
 }
 
 .profileContent div {
