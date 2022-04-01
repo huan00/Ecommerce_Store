@@ -14,6 +14,8 @@ const AddProduct = () => {
     Category: ''
   })
 
+  const requireStyle = 'required'
+
   const handleName = (e) => {
     setProduct({ ...product, name: e.target.value })
   }
@@ -31,6 +33,9 @@ const AddProduct = () => {
   }
   const handleCategory = (e) => {
     setProduct({ ...product, Category: e.target.value })
+  }
+  const handleRequire = () => {
+    return 'required'
   }
 
   let navigate = useNavigate()
@@ -52,6 +57,7 @@ const AddProduct = () => {
         handleBrand={handleBrand}
         handleImg={handleImg}
         handleCategory={handleCategory}
+        handleRequire={handleRequire}
       />
     </div>
   )

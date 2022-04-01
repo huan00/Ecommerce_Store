@@ -24,7 +24,6 @@ const InputProduct = (props) => {
       <form onSubmit={props.handleSubmit} className="AddProductForm">
         <label htmlFor="name"></label>
         <input
-          required
           onChange={props.handleName}
           type="text"
           id="name"
@@ -32,7 +31,6 @@ const InputProduct = (props) => {
         />
         <label htmlFor="price"></label>
         <input
-          required
           onChange={props.handlePrice}
           type="number"
           id="price"
@@ -40,21 +38,15 @@ const InputProduct = (props) => {
         />
         <label htmlFor="Desc"></label>
         <input
-          required
           onChange={props.handleDesc}
           type="text"
           id="desc"
           placeholder="Description of item"
         />
         <label htmlFor="img"></label>
-        <input
-          onChange={props.handleImg}
-          type="text"
-          id="img"
-          placeholder="Image Url"
-        />
+        <input type="text" id="img" placeholder="Image Url" />
         <label htmlFor="brand"></label>
-        <select required id="" onChange={props.handleBrand}>
+        <select id="" onChange={props.handleBrand}>
           {brand.map((bd) => (
             <option className="optionList" key={bd._id} value={bd.name}>
               {bd.name}
@@ -62,7 +54,7 @@ const InputProduct = (props) => {
           ))}
         </select>
         <label htmlFor="category"></label>
-        <select required id="" onChange={props.handleCategory}>
+        <select id="" onChange={props.handleCategory}>
           {category.map((cate) => (
             <option key={cate._id} value={cate.name}>
               {cate.name}

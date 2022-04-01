@@ -23,7 +23,7 @@ body {
 
 .productContainer {
   width: 200px;
-  height: 300px;
+  height: 275px;
   margin: 20px 5px;
   background-color: white;
 
@@ -51,6 +51,12 @@ body {
 
   justify-content: space-evenly;
   /* align-items: center; */
+}
+
+.ProductOverview div img {
+  max-width: 100px;
+  max-height: 140px;
+  margin: 0 auto;
 }
 
 .ProductOverview div img {
@@ -88,8 +94,3 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-/* .ProductImg {
-  width: 250px;
-  height: 275px;
-} */

@@ -53,6 +53,10 @@ const EditPage = () => {
     navigate('/')
   }
 
+  const handleRequire = () => {
+    return ''
+  }
+
   return (
     <div>
       EditPage
@@ -66,6 +70,7 @@ const EditPage = () => {
         handleBrand={handleBrand}
         handleImg={handleImg}
         handleCategory={handleCategory}
+        handleRequire={handleRequire}
       />
     </div>
   )

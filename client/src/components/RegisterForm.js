@@ -16,7 +16,6 @@ const RegisterForm = (props) => {
         />
         <section>
           <div className="formDiv">
-            {/* <label htmlFor="password"></label> */}
             <input
               placeholder="Password"
               name="password"
@@ -34,13 +33,10 @@ const RegisterForm = (props) => {
               id="confirmPassword"
               onChange={props.handlePassword}
             />
-
-            {/* <label htmlFor="password"></label> */}
           </div>
         </section>
         <section>
           <div className="formDiv">
-            {/* <label htmlFor="lastName"></label> */}{' '}
             <input
               placeholder="First Name"
               name="firstName"
@@ -57,7 +53,6 @@ const RegisterForm = (props) => {
               id=""
               onChange={props.handleLastName}
             />
-            {/* <label htmlFor="firstName"></label> */}
           </div>
         </section>
         <label htmlFor="email"></label>
